@@ -87,9 +87,9 @@ External to Internal: An external browser successfully accesses the internal cor
 This project was engineered to demonstrate core Network Engineering and Cybersecurity principles. It highlights the importance of Defense-in-Depth, utilizing physical port security, logical network segmentation, and stateful firewall filtering to create a robust enterprise environment.
 
 
-## Author: Mehdi Mejri
+*** Author: Mehdi Mejri ***
 
-## Organization: Tunisie Telecom
+*** Organization: Tunisie Telecom ***
 
 ## Position: Intern
 
