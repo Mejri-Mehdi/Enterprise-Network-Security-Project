@@ -1,0 +1,177 @@
+ASA 5505 Firewall Configuration
+
+
+
+Step 1: Map Physical Ports to VLANs
+
+
+interface Ethernet0/0
+ switchport mode access
+ switchport access vlan 2
+ no shutdown
+
+interface Ethernet0/1
+ switchport mode access
+ switchport access vlan 1
+ no shutdown
+
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+
+
+Step 2: Configure VLAN Interfaces, Nameifs, and IPs
+
+
+interface Vlan 2
+ nameif inside
+ security-level 100
+ ip address 10.0.0.2 255.255.255.252
+ no shutdown
+
+interface Vlan 1
+ nameif outside
+ security-level 0
+ ip address 209.165.200.2 255.255.255.252
+ no shutdown
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+
+Step 3: Set Up Default and Internal Static Routes
+
+
+
+route outside 0.0.0.0 0.0.0.0 209.165.200.1
+route inside 192.168.10.0 255.255.255.0 10.0.0.1
+route inside 192.168.20.0 255.255.255.0 10.0.0.1
+route inside 192.168.30.0 255.255.255.0 10.0.0.1
+route inside 192.168.40.0 255.255.255.0 10.0.0.1
+route inside 192.168.99.0 255.255.255.0 10.0.0.1
+route inside 192.168.50.0 255.255.255.0 10.0.0.1
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+
+Step 4: Configure Dynamic NAT (PAT)
+
+
+object network PAT_POOL
+ subnet 0.0.0.0 0.0.0.0
+ nat (inside,outside) dynamic interface
+exit
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+
+
+Step 5: Enable ICMP Inspection (To allow Ping Reply packets back through)
+
+
+
+class-map inspection_default
+ match default-inspection-traffic
+policy-map global_policy
+ class inspection_default
+  inspect icmp
+exit
+exit
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+
+
+Step 6: Create Access-Lists to Fix the Packet Tracer Bug (The critical fix)
+
+
+
+
+access-list INSIDE-IN extended permit icmp 192.168.10.0 255.255.255.0 any
+access-list INSIDE-IN extended permit icmp 192.168.20.0 255.255.255.0 any
+access-list INSIDE-IN extended permit icmp 192.168.30.0 255.255.255.0 any
+access-list INSIDE-IN extended permit icmp 192.168.40.0 255.255.255.0 any
+access-list INSIDE-IN extended permit icmp 192.168.50.0 255.255.255.0 any
+
+access-list OUTSIDE-IN extended permit icmp any any
+
+access-group INSIDE-IN in interface inside
+access-group OUTSIDE-IN in interface outside
+
+
+
+write memory
+
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+
+conf t
+! Create a static NAT mapping
+object network WEB_SERVER
+ host 192.168.30.1
+ nat (inside,outside) static 209.165.200.3
+ exit
+
+! Create an ACL to allow Outside users to access this port
+access-list OUTSIDE-IN extended permit tcp any host 209.165.200.3 eq 80
+access-group OUTSIDE-IN in interface outside
+exit
+write memory
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+
+
+conf t
+! Create a username and password for the VPN user
+username admin password cisco123
+username admin attributes
+ vpn-group-policy DfltGrpPolicy
+ exit
+
+! Enable VPN access on the outside interface
+crypto isakmp enable outside
+crypto isakmp policy 10
+ authentication pre-share
+ encryption aes
+ hash sha
+ group 2
+ lifetime 86400
+ exit
+
+! Allow VPN traffic through the firewall ACL
+access-list OUTSIDE-IN extended permit udp any host 209.165.200.2 eq isakmp
+access-list OUTSIDE-IN extended permit udp any host 209.165.200.2 eq 500
+exit
+write memory
+
+
+enable password cisco123

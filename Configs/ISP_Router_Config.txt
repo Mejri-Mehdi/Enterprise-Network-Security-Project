@@ -1,0 +1,12 @@
+
+ISP
+
+
+
+ip route 192.168.0.0 255.255.0.0 209.165.200.2
+exit
+write memory
+
+
+enable secret cisco123
+service password-encryption
