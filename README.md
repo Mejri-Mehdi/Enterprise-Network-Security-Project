@@ -88,7 +88,9 @@ This project was engineered to demonstrate core Network Engineering and Cybersec
 
 
 ## Author: Mehdi Mejri
+
 ## Organization: Tunisie Telecom
+
 ## Position: Intern
 
 Feel free to explore the configurations in the Configs/ directory to view the exact CLI commands used for these security implementations.
