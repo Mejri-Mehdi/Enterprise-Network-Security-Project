@@ -88,8 +88,7 @@ This project was engineered to demonstrate core Network Engineering and Cybersec
 
 
 *** Author: Mehdi Mejri ***
-
-*** Organization: Tunisie Telecom ***
+Organization: Tunisie Telecom ***
 
 ## Position: Intern
 
