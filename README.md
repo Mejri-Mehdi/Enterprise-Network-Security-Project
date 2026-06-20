@@ -13,6 +13,7 @@ The network is structured to enforce strict security policies through VLAN isola
 
 ---
 * <img width="1872" height="711" alt="topology_full" src="https://github.com/user-attachments/assets/8989d6b7-0bac-4166-a626-61c228194d67" /> *
+
 ---
 
 
