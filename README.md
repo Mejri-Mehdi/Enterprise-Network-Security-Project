@@ -72,10 +72,10 @@ The ISP router is configured with a Loopback interface simulating `8.8.8.8` (Goo
 ## 📈 Traffic Flow Validation
 
 ---
+
 <img width="816" height="562" alt="ping_admin_to_isp" src="https://github.com/user-attachments/assets/24efb3ce-3ad6-4e14-88de-01db13230322" />
 
 ---
-
 
 Internal to External: An Admin PC (192.168.10.1) successfully pings the ISP router (209.165.200.1) and the simulated Google DNS (8.8.8.8) via NAT.
 
