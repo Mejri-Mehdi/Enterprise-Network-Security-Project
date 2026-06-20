@@ -10,7 +10,11 @@ This project implements a **secure, enterprise-grade network infrastructure** us
 The network is structured to enforce strict security policies through VLAN isolation, Cisco Port Security, Access Control Lists (ACLs), and Dynamic NAT/PAT, simulating a real-world corporate environment.
 
 ## 🏗️ Network Architecture
-*(Image Placeholder: `![Network Topology](Images/01_topology_overview.png)`)*
+
+---
+<img width="1872" height="711" alt="topology_full" src="https://github.com/user-attachments/assets/5b4a19ac-662d-47ef-9dc1-1efda9e10c00" />
+---
+
 
 ### Core Topology Components:
 *   **Core Switch:** Cisco Catalyst 2960 handling Layer 2 segmentation.
@@ -65,7 +69,10 @@ The ISP router is configured with a Loopback interface simulating `8.8.8.8` (Goo
 ```
 
 ## 📈 Traffic Flow Validation
-<img width="1872" height="711" alt="topology_full" src="https://github.com/user-attachments/assets/515ad446-7be3-4f83-a553-22f95eabb0d8" />
+
+---
+<img width="816" height="562" alt="ping_admin_to_isp" src="https://github.com/user-attachments/assets/24efb3ce-3ad6-4e14-88de-01db13230322" />
+---
 
 
 Internal to External: An Admin PC (192.168.10.1) successfully pings the ISP router (209.165.200.1) and the simulated Google DNS (8.8.8.8) via NAT.
