@@ -68,7 +68,9 @@ Enterprise-Network-Security-Project/
 │   ├── ROAS_Router_Config.txt
 │   ├── ASA5505_Firewall_Config.txt
 │   └── ISP_Router_Config.txt
-└── Enterprise_Telecom_XAI_Security_Center_Report.pdf   # This repository contains only Part 2 of the project report. The full report is divided into three parts.
+└── Enterprise_Telecom_XAI_Security_Center_Report.pdf   # This repository contains only Part 2 
+                                                          of the project report. The full 
+                                                          report is divided into three parts.
 ```
 
 ## 📈 Traffic Flow Validation
