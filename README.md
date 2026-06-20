@@ -58,15 +58,17 @@ The ISP router is configured with a Loopback interface simulating `8.8.8.8` (Goo
 ## 📂 Repository Structure
 
 ```
-/
+Enterprise-Network-Security-Project/
+│
 ├── README.md
-├── Images/                 # Screenshots of topology and connectivity tests
-├── Network-Diagram/        # Packet Tracer .pkt file
-└── Configs/                # Pure text files of device CLI configurations
-    ├── CentralSwitch_Config.txt
-    ├── ROAS_Router_Config.txt
-    ├── ASA5505_Firewall_Config.txt
-    └── ISP_Router_Config.txt
+├── Images/                     # Screenshots of topology and connectivity tests
+├── Network-Diagram/            # Packet Tracer .pkt file
+├── Configs/                    # Pure text files of device CLI configurations
+│   ├── CentralSwitch_Config.txt
+│   ├── ROAS_Router_Config.txt
+│   ├── ASA5505_Firewall_Config.txt
+│   └── ISP_Router_Config.txt
+└── Enterprise_Telecom_XAI_Security_Center_Report.pdf   # This repository contains only Part 2 of the project report. The full report is divided into three parts.
 ```
 
 ## 📈 Traffic Flow Validation
