@@ -12,7 +12,7 @@ The network is structured to enforce strict security policies through VLAN isola
 ## 🏗️ Network Architecture
 
 ---
-<img width="1872" height="711" alt="topology_full" src="https://github.com/user-attachments/assets/5b4a19ac-662d-47ef-9dc1-1efda9e10c00" />
+* <img width="1872" height="711" alt="topology_full" src="https://github.com/user-attachments/assets/8989d6b7-0bac-4166-a626-61c228194d67" /> *
 ---
 
 
